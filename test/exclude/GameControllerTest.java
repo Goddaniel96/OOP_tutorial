@@ -1,4 +1,4 @@
-package grader;
+package exclude;
 
 import logic.components.Player;
 import logic.components.Status;

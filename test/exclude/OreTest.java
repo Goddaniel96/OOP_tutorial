@@ -1,4 +1,4 @@
-package grader;
+package exclude;
 import static org.junit.jupiter.api.Assertions.*;
 import logic.components.*;
 import org.junit.jupiter.api.Test;
