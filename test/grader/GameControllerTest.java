@@ -1,8 +1,8 @@
-package exclude;
+package grader;
 
 import logic.components.Player;
 import logic.components.Status;
-import logic.game.GameController;
+import logic.components.GameController;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

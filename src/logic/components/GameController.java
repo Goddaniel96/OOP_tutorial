@@ -1,4 +1,6 @@
-package logic.exclude;
+package logic.components;
+
+import exception.BadStatusException;
 
 import java.util.ArrayList;
 
@@ -55,7 +57,28 @@ public class GameController {
     }
 
     public void endDay(){
-        /*FILL CODE*/
+        for (int i = players.size() - 1; i >= 0; i--){
+            int pHp=players.get(i).getStatus().getHp(); //ดึงhpมา
+            int deplayer =players.get(i).getEnergy();  //ดึงenergyมา
+            deplayer-=3;
+            if(deplayer<0) //มันคือกล่องไม่ใช่set hp
+            {   players.get(i).setEnergy(0);
+                int newpHp= pHp+deplayer;
+               try{ players.get(i).getStatus().setHp(newpHp);} //
+                    catch (BadStatusException e){}
+                if(newpHp<0){
+                   try{ players.get(i).getStatus().setHp(0);}
+                    catch (BadStatusException e){}
+                }
+                else
+                   try{ players.get(i).getStatus().setHp(newpHp);}
+                   catch (BadStatusException e){}
+            }
+            else
+                players.get(i).setEnergy(deplayer);
+
+
+        }
     }
 
     public void removeDeadPlayerAndMonster() {
@@ -94,7 +117,14 @@ public class GameController {
         }
         return gameEnd;
     }
-    public static Status createNewStatus(int hp, int durable, int attack,int magic){
-       /*FILL CODE*/
+    public static Status createNewStatus(int hp, int durability, int attack,int magic){
+       if(hp < 0|| durability <0 || attack <0 || magic<0){return null;}
+       else {
+          try{ Status newS= new Status(hp,durability,attack,magic);
+              return newS;
+          }
+           catch (BadStatusException e) {}
+       }
+        return null;
     }
 }

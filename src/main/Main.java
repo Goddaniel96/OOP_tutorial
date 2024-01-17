@@ -1,7 +1,7 @@
 package main;
 
 import logic.components.*;
-import logic.game.GameController;
+import logic.components.GameController;
 
 import java.awt.*;
 import java.util.Scanner;
@@ -155,7 +155,7 @@ public class Main {
                     System.out.println("Choose player");
                     for(int i=0;i<GameController.getInstance().players.size();i++){
                         System.out.println("<"+i+"> "+"Player: "+GameController.getInstance().players.get(i).getName());
-                        System.out.println("Hp: "+GameController.getInstance().players.get(i).getStatus().getHp()+" Durability: "+GameController.getInstance().players.get(i).getStatus().getDurable()
+                        System.out.println("Hp: "+GameController.getInstance().players.get(i).getStatus().getHp()+" Durability: "+GameController.getInstance().players.get(i).getStatus().getDurability()
                         +" Attack: "+GameController.getInstance().players.get(i).getStatus().getAttack()+" Magic: "+GameController.getInstance().players.get(i).getStatus().getMagic()
                         +" Energy: "+GameController.getInstance().players.get(i).getEnergy()+" Money: "+GameController.getInstance().players.get(i).getMoney()
                         );
@@ -166,13 +166,13 @@ public class Main {
                         continue;
                     }
                     System.out.println("Player: "+GameController.getInstance().players.get(player).getName());
-                    System.out.println("Hp: "+GameController.getInstance().players.get(player).getStatus().getHp()+" Durability: "+GameController.getInstance().players.get(player).getStatus().getDurable()
+                    System.out.println("Hp: "+GameController.getInstance().players.get(player).getStatus().getHp()+" Durability: "+GameController.getInstance().players.get(player).getStatus().getDurability()
                             +" Attack: "+GameController.getInstance().players.get(player).getStatus().getAttack()+" Magic: "+GameController.getInstance().players.get(player).getStatus().getMagic()
                             +" Energy: "+GameController.getInstance().players.get(player).getEnergy()+" Money: "+GameController.getInstance().players.get(player).getMoney()
                     );
                     System.out.println("Food: ");
                     for(int i=0;i<GameController.getInstance().players.get(player).getFoods().size();i++){
-                        System.out.println(GameController.getInstance().players.get(player).getFoods().get(i).name);
+                        System.out.println(GameController.getInstance().players.get(player).getFoods().get(i).getName());
                     }
                     System.out.println("Potion: ");
                     for(int i=0;i<GameController.getInstance().players.get(player).getPotions().size();i++){
@@ -180,7 +180,7 @@ public class Main {
                     }
                     System.out.println("Ore: ");
                     for(int i=0;i<GameController.getInstance().players.get(player).getOres().size();i++){
-                        System.out.println(GameController.getInstance().players.get(player).getOres().get(i).name);
+                        System.out.println(GameController.getInstance().players.get(player).getOres().get(i).getName());
                     }
                 }
                 else if(option == 7){
@@ -192,7 +192,7 @@ public class Main {
                     System.out.println("Choose monster");
                     for(int i=0;i<GameController.getInstance().monsters.size();i++){
                         System.out.println("<"+i+"> "+"Monster: "+GameController.getInstance().monsters.get(i).getName());
-                        System.out.println("Hp: "+GameController.getInstance().monsters.get(i).getStatus().getHp()+" Durability: "+GameController.getInstance().monsters.get(i).getStatus().getDurable()
+                        System.out.println("Hp: "+GameController.getInstance().monsters.get(i).getStatus().getHp()+" Durability: "+GameController.getInstance().monsters.get(i).getStatus().getDurability()
                                 +" Attack: "+GameController.getInstance().monsters.get(i).getStatus().getAttack()+" Magic: "+GameController.getInstance().monsters.get(i).getStatus().getMagic()
                         );
                     }
@@ -202,10 +202,10 @@ public class Main {
                         continue;
                     }
                     System.out.println("Monster: "+GameController.getInstance().monsters.get(monster).getName());
-                    System.out.println("Hp: "+GameController.getInstance().monsters.get(monster).getStatus().getHp()+" Durability: "+GameController.getInstance().monsters.get(monster).getStatus().getDurable()
+                    System.out.println("Hp: "+GameController.getInstance().monsters.get(monster).getStatus().getHp()+" Durability: "+GameController.getInstance().monsters.get(monster).getStatus().getDurability()
                             +" Attack: "+GameController.getInstance().monsters.get(monster).getStatus().getAttack()+" Magic: "+GameController.getInstance().monsters.get(monster).getStatus().getMagic()
                     );
-                    System.out.println("Drop Food: "+GameController.getInstance().monsters.get(monster).getFood().name + ", Drop Potion: "+GameController.getInstance().monsters.get(monster).getPotion().getName());
+                    System.out.println("Drop Food: "+GameController.getInstance().monsters.get(monster).getFood().getName() + ", Drop Potion: "+GameController.getInstance().monsters.get(monster).getPotion().getName());
                 }
                 else if(option == 8){
                     System.out.println("======================================================");
@@ -249,7 +249,7 @@ public class Main {
                         for(int i=0;i<GameController.getInstance().markets.get(market).getPotions().size();i++){
                             System.out.println("<"+i+"> "+GameController.getInstance().markets.get(market).getPotions().get(i).getName());
                             System.out.println("Increasing Status Hp: "+GameController.getInstance().markets.get(market).getPotions().get(i).getIncreasingStatus().getHp()
-                                    +" Durability: "+GameController.getInstance().markets.get(market).getPotions().get(i).getIncreasingStatus().getDurable()
+                                    +" Durability: "+GameController.getInstance().markets.get(market).getPotions().get(i).getIncreasingStatus().getDurability()
                                     +" Attack: "+GameController.getInstance().markets.get(market).getPotions().get(i).getIncreasingStatus().getAttack()
                                     +" Magic: "+GameController.getInstance().markets.get(market).getPotions().get(i).getIncreasingStatus().getMagic()
                             );
@@ -276,20 +276,20 @@ public class Main {
                         }
                         System.out.println("Choose food you want to buy");
                         for(int i=0;i<GameController.getInstance().markets.get(market).getFoods().size();i++){
-                            System.out.println("<"+i+"> "+GameController.getInstance().markets.get(market).getFoods().get(i).name);
-                            System.out.println("Price: "+GameController.getInstance().markets.get(market).getFoods().get(i).price+" Energy : "+GameController.getInstance().markets.get(market).getFoods().get(i).energy);
+                            System.out.println("<"+i+"> "+GameController.getInstance().markets.get(market).getFoods().get(i).getName());
+                            System.out.println("Price: "+GameController.getInstance().markets.get(market).getFoods().get(i).getPrice()+" Energy : "+GameController.getInstance().markets.get(market).getFoods().get(i).getEnergy());
                         }
                         int food = scan.nextInt();
                         if(food<0 || food>=GameController.getInstance().markets.get(market).getFoods().size()){
                             System.out.println("Error");
                             continue;
                         }
-                        if(GameController.getInstance().players.get(player).getMoney()<GameController.getInstance().markets.get(market).getFoods().get(food).price){
+                        if(GameController.getInstance().players.get(player).getMoney()<GameController.getInstance().markets.get(market).getFoods().get(food).getPrice()){
                             System.out.println("Your money is not enough to buy this food");
                             continue;
                         }
                         System.out.println("Buy food completed");
-                        GameController.getInstance().players.get(player).setMoney(GameController.getInstance().players.get(player).getMoney()-GameController.getInstance().markets.get(market).getFoods().get(food).price);
+                        GameController.getInstance().players.get(player).setMoney(GameController.getInstance().players.get(player).getMoney()-GameController.getInstance().markets.get(market).getFoods().get(food).getPrice());
                         GameController.getInstance().players.get(player).getFoods().add(GameController.getInstance().markets.get(market).getFoods().get(food));
                         GameController.getInstance().markets.get(market).getFoods().remove(GameController.getInstance().markets.get(market).getFoods().get(food));
                     }
@@ -335,12 +335,12 @@ public class Main {
                         continue;
                     }
                     if(GameController.getInstance().monsters.get(monster).getStatus().getHp()<=0){
-                        System.out.println("You got Food: "+GameController.getInstance().monsters.get(monster).getFood().name);
-                        System.out.println("Price: "+GameController.getInstance().monsters.get(monster).getFood().price+" Energy: "+GameController.getInstance().monsters.get(monster).getFood().energy);
+                        System.out.println("You got Food: "+GameController.getInstance().monsters.get(monster).getFood().getName());
+                        System.out.println("Price: "+GameController.getInstance().monsters.get(monster).getFood().getPrice()+" Energy: "+GameController.getInstance().monsters.get(monster).getFood().getEnergy());
                         System.out.println("You got Potion: "+GameController.getInstance().monsters.get(monster).getPotion().getName());
                         System.out.println("Price: "+GameController.getInstance().monsters.get(monster).getPotion().getPrice());
                         System.out.println("Increasing Status Hp: "+GameController.getInstance().monsters.get(monster).getPotion().getIncreasingStatus().getHp()
-                                +" Durability: "+GameController.getInstance().monsters.get(monster).getPotion().getIncreasingStatus().getDurable()
+                                +" Durability: "+GameController.getInstance().monsters.get(monster).getPotion().getIncreasingStatus().getDurability()
                                 +" Attack: "+GameController.getInstance().monsters.get(monster).getPotion().getIncreasingStatus().getAttack()
                                 +" Magic: "+GameController.getInstance().monsters.get(monster).getPotion().getIncreasingStatus().getMagic()
                         );
@@ -404,7 +404,7 @@ public class Main {
                         System.out.println("Money: "+GameController.getInstance().players.get(i).getMoney());
                         System.out.println("Ores: ");
                         for(int j=0;j<GameController.getInstance().players.get(i).getOres().size();j++){
-                            System.out.println(GameController.getInstance().players.get(i).getOres().get(j).name);
+                            System.out.println(GameController.getInstance().players.get(i).getOres().get(j).getName());
                         }
                     }
                     int player = scan.nextInt();
@@ -414,7 +414,7 @@ public class Main {
                     }
                     System.out.println("Choose ore you want to buy");
                     for(int i=0;i<4;i++){
-                        System.out.println("<"+i+"> "+GameController.getInstance().ores.get(i).name +" Cost: "+GameController.getInstance().ores.get(i).cost);
+                        System.out.println("<"+i+"> "+GameController.getInstance().ores.get(i).getName() +" Cost: "+GameController.getInstance().ores.get(i).getCost());
                     }
                     int ore=scan.nextInt();
                     if(ore<0||ore>=4){
@@ -453,7 +453,7 @@ public class Main {
                     for (int i = 0; i < GameController.getInstance().players.get(player).getPotions().size(); i++) {
                         System.out.println("<" + i + "> " + GameController.getInstance().players.get(player).getPotions().get(i).getName());
                         System.out.println("Increasing Status Hp : "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getHp()
-                                +" Durability: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getDurable()
+                                +" Durability: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getDurability()
                                 +" Attack: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getAttack()
                                 +" Magic: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getMagic()
                         );
@@ -490,9 +490,9 @@ public class Main {
                     }
                     System.out.println("Choose Food you want to eat");
                     for (int i = 0; i < GameController.getInstance().players.get(player).getFoods().size(); i++) {
-                        System.out.println("<" + i + "> " + GameController.getInstance().players.get(player).getFoods().get(i).name);
-                        System.out.println("Energy: "+GameController.getInstance().players.get(player).getFoods().get(i).energy
-                                +" Price: "+GameController.getInstance().players.get(player).getFoods().get(i).price);
+                        System.out.println("<" + i + "> " + GameController.getInstance().players.get(player).getFoods().get(i).getName());
+                        System.out.println("Energy: "+GameController.getInstance().players.get(player).getFoods().get(i).getEnergy()
+                                +" Price: "+GameController.getInstance().players.get(player).getFoods().get(i).getPrice());
                     }
                     int food = scan.nextInt();
                     if(food<0||food>=GameController.getInstance().players.get(player).getFoods().size()){
@@ -524,7 +524,7 @@ public class Main {
                     for (int i = 0; i < GameController.getInstance().players.get(player).getPotions().size(); i++) {
                         System.out.println("<" + i + "> " + GameController.getInstance().players.get(player).getPotions().get(i).getName());
                         System.out.println("Increasing Status Hp: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getHp()
-                                +" Durability: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getDurable()
+                                +" Durability: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getDurability()
                                 +" Attack: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getAttack()
                                 +" Magic: "+GameController.getInstance().players.get(player).getPotions().get(i).getIncreasingStatus().getMagic()
                         );
@@ -558,9 +558,9 @@ public class Main {
                     }
                     System.out.println("Choose Food you want to sell");
                     for (int i = 0; i < GameController.getInstance().players.get(player).getFoods().size(); i++) {
-                        System.out.println("<" + i + "> " + GameController.getInstance().players.get(player).getFoods().get(i).name);
-                        System.out.println("Energy: "+GameController.getInstance().players.get(player).getFoods().get(i).energy
-                                +" Price: "+GameController.getInstance().players.get(player).getFoods().get(i).price);
+                        System.out.println("<" + i + "> " + GameController.getInstance().players.get(player).getFoods().get(i).getName());
+                        System.out.println("Energy: "+GameController.getInstance().players.get(player).getFoods().get(i).getEnergy()
+                                +" Price: "+GameController.getInstance().players.get(player).getFoods().get(i).getPrice());
                     }
                     int food = scan.nextInt();
                     if(food<0||food>=GameController.getInstance().players.get(player).getFoods().size()){

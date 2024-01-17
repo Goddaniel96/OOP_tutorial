@@ -1,4 +1,4 @@
-package logic.exclude;
+package logic.components;
 
 import java.util.Objects;
 
@@ -8,9 +8,9 @@ public class Ore {
     public Ore(String name, int cost){
         this.name=name;
         this.cost=cost;
-        if(cost<1){
-            cost=1;
-        }
+        if(cost<1)
+            this.cost=1;
+
     }
     @Override
     public boolean equals(Object o) {
@@ -37,6 +37,9 @@ public class Ore {
     }
 
     public void setCost(int cost) {
-        this.cost = cost;
+        if(cost<1)
+            this.cost=1;
+        else
+           this.cost = cost;
     }
 }

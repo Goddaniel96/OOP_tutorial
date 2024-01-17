@@ -1,4 +1,4 @@
-package logic.exclude;
+package logic.components;
 
 import java.util.Objects;
 
@@ -47,7 +47,10 @@ public class Food {
     }
 
     public void setPrice(int price) {
+        if(price<1){this.price=1;}
+        else{
         this.price = price;
+        }
     }
 
     public int getEnergy() {
@@ -55,6 +58,8 @@ public class Food {
     }
 
     public void setEnergy(int energy) {
-        this.energy = energy;
+        if(energy<1){this.energy=1;}
+        else{
+        this.energy = energy;}
     }
 }

@@ -1,4 +1,4 @@
-package logic.exclude;
+package logic.components;
 
 import exception.BadStatusException;
 
@@ -12,7 +12,7 @@ private int magic; //ปล่อยพลังเวท
 
 public Status(int hp, int durability, int attack, int magic) throws BadStatusException{
  if(hp<0 || durability <0 || attack <0 || magic <0 ){
-     throw new BadStatusException;
+     throw new BadStatusException();
  }
  setHp(hp);
  setAttack(attack);
@@ -32,7 +32,7 @@ public boolean equals(Object o) {
     public void addStatus(Status another) throws //รับค่าจากออบเจ็ค another ที่อยุ่ในclass Status
             BadStatusException{
     if(hp<0 || durability <0 || attack <0 || magic <0 ) {
-        throw new BadStatusException;
+        throw new BadStatusException();
     }
     hp+=another.hp;
     durability+=another.durability;
@@ -46,7 +46,7 @@ public boolean equals(Object o) {
 
     public void setHp(int hp) throws BadStatusException {
     if(hp<0){
-        throw new BadStatusException;
+        throw new BadStatusException();
     }
         this.hp = hp;
     }
@@ -57,7 +57,7 @@ public boolean equals(Object o) {
 
     public void setDurability(int durability) throws BadStatusException {
     if(durability<0){
-        throw new BadStatusException;
+        throw new BadStatusException();
     }
         this.durability = durability;
     }
@@ -68,7 +68,7 @@ public boolean equals(Object o) {
 
     public void setAttack(int attack) throws BadStatusException {
        if(attack<0){
-           throw new  BadStatusException;
+           throw new  BadStatusException();
        }
        this.attack = attack;
  }
@@ -79,7 +79,7 @@ public boolean equals(Object o) {
 
     public void setMagic(int magic) throws BadStatusException {
         if(magic <0){
-            throw new BadStatusException;
+            throw new BadStatusException();
         }
         this.magic = magic;
     }

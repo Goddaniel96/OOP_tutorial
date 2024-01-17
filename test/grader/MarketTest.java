@@ -3,7 +3,7 @@ package grader;
 import static org.junit.jupiter.api.Assertions.*;
 
 import exception.BadStatusException;
-import logic.exclude.Market;
+import logic.components.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

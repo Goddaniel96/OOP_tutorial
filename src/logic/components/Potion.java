@@ -1,4 +1,4 @@
-package logic.exclude;
+package logic.components;
 
 import java.util.Objects;
 
@@ -40,7 +40,7 @@ public class Potion {
     public void setPrice(int price) {
         this.price = price;
         if(price<1){
-            price=1;
+            this.price=1;
         }
     }
 

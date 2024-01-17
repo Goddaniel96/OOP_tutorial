@@ -1,4 +1,4 @@
-package logic.exclude;
+package logic.components;
 
 import exception.BadStatusException;
 
@@ -20,30 +20,30 @@ public class Monster {
         this.name=name;
     }
     public void attack(Player player){
-        try{Player pstat1=player.getStatus(); //ไปดึงstatus playerมาก่อน
+        try{Status pstat1=player.getStatus(); //ไปดึงstatus playerมาก่อน
             int pHp=pstat1.getHp();
             int pdura=pstat1.getDurability();
-            int monatta=status.getAtta();
+            int monatta=status.getAttack();
             int damaged=monatta-pdura;
             if(damaged<0){
                 damaged=0;}
            int newpHp=pHp-damaged;
             if(newpHp<0){
-                newphp=0;
+                newpHp=0;
             }
-            pstat1.setHP(newpHp);
+            pstat1.setHp(newpHp);
         }
         catch (BadStatusException e){}
     }
     public void magicAttack(Player player){
-        try{Player pstat2=player.getstatus();//ไว้ดึงเอาข้อมูลจากStatusของplayer
-            int monAtta2=status.getAttack();
+        try{Status pstat2=player.getStatus();//ไว้ดึงเอาข้อมูลจากStatusของplayer
+            int monAtta2=status.getMagic();
             int pHp2=pstat2.getHp();
             int newpHp2=pHp2-monAtta2;
             if(newpHp2<0){
                 newpHp2=0;
             }
-           p.stat2.setHp(newpHp2);
+           pstat2.setHp(newpHp2);
         }
         catch (BadStatusException e){}
     }
