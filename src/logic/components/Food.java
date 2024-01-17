@@ -1,4 +1,4 @@
-package logic.components;
+package logic.exclude;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ public class Food {
 
 
     private String name;
-    private int price ; //price must be positice
+    private int price ; //price must be positive
     private int energy; // energy must be positive
     public Food(String name, int price ,int energy){
         this.name=name;

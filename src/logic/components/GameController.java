@@ -1,4 +1,4 @@
-package logic.game;
+package logic.exclude;
 
 import java.util.ArrayList;
 

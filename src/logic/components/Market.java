@@ -1,6 +1,5 @@
-package logic.components;
+package logic.exclude;
 
-import logic.exclude.Potion;
 import logic.game.Food;
 
 import java.util.ArrayList;

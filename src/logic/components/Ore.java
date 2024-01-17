@@ -1,4 +1,4 @@
-package logic.component;
+package logic.exclude;
 
 import java.util.Objects;
 
@@ -8,11 +8,10 @@ public class Ore {
     public Ore(String name, int cost){
         this.name=name;
         this.cost=cost;
-        if(cost <1){
+        if(cost<1){
             cost=1;
         }
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -20,7 +19,6 @@ public class Ore {
         Ore ore = (Ore) o;
         return cost == ore.cost && Objects.equals(name, ore.name);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(name, cost);

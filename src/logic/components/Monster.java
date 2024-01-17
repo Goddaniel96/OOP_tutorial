@@ -1,4 +1,4 @@
-package logic.component;
+package logic.exclude;
 
 import exception.BadStatusException;
 
@@ -14,31 +14,36 @@ public class Monster {
                 status.setHp(1);
             }
         }
-            catch(BadStatusException e ){}
-
+        catch (BadStatusException e ){}
         food=null; //the monster hp() must be at least equal to 1
         potion=null; //deal with exception inside constructor only (no exception is actually possible)
         this.name=name;
     }
     public void attack(Player player){
-        try{ playstat=player.getStatus(); //ไปดึงstatus playerมาก่อน
-            int playHp=playstat.getHp();
-            int playdura=playstat.getDurability();
-            int monattack=status.getAttack();
-            int damaged=monattack-playdura;
+        try{Player pstat1=player.getStatus(); //ไปดึงstatus playerมาก่อน
+            int pHp=pstat1.getHp();
+            int pdura=pstat1.getDurability();
+            int monatta=status.getAtta();
+            int damaged=monatta-pdura;
             if(damaged<0){
                 damaged=0;}
-           int newplayhp=damaged-playHp;
-            if(newplayhp<0){
-                newplayhp=0;
+           int newpHp=pHp-damaged;
+            if(newpHp<0){
+                newphp=0;
             }
-            playstat.setHP(newplayhp);
+            pstat1.setHP(newpHp);
         }
-        catch(BadStatusException e){}
+        catch (BadStatusException e){}
     }
-    public void magic Attack(Player player){
-        try{playstattwo=player.getstatus();
-          int newhptwo=playstattwo.getHp();
+    public void magicAttack(Player player){
+        try{Player pstat2=player.getstatus();//ไว้ดึงเอาข้อมูลจากStatusของplayer
+            int monAtta2=status.getAttack();
+            int pHp2=pstat2.getHp();
+            int newpHp2=pHp2-monAtta2;
+            if(newpHp2<0){
+                newpHp2=0;
+            }
+           p.stat2.setHp(newpHp2);
         }
         catch (BadStatusException e){}
     }

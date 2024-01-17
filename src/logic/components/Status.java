@@ -1,17 +1,16 @@
-package logic.component;
+package logic.exclude;
 
 import exception.BadStatusException;
 
 import java.util.Objects;
 
 public class Status {
-private int hp; //health point must be<0
-private int durability;
-private int attack;
-private int magic;
+private int hp; //พลังชีวิต
+private int durability;//ป้องกัน
+private int attack; //พลังโจมตี
+private int magic; //ปล่อยพลังเวท
 
-public Status(int hp, int durability, int attack, int
-            magic) throws BadStatusException{
+public Status(int hp, int durability, int attack, int magic) throws BadStatusException{
  if(hp<0 || durability <0 || attack <0 || magic <0 ){
      throw new BadStatusException;
  }
@@ -20,20 +19,17 @@ public Status(int hp, int durability, int attack, int
  setDurability(durability);
  setMagic(magic);
 }
-
-
-    public boolean equals(Object o) {
+public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Status status = (Status) o;
         return hp == status.hp && durability == status.durability && attack == status.attack && magic == status.magic;
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(hp, durability, attack, magic);
     }
-    public void addStatus(Status another) throws
+    public void addStatus(Status another) throws //รับค่าจากออบเจ็ค another ที่อยุ่ในclass Status
             BadStatusException{
     if(hp<0 || durability <0 || attack <0 || magic <0 ) {
         throw new BadStatusException;

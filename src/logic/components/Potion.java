@@ -1,4 +1,4 @@
-package logic.component;
+package logic.exclude;
 
 import java.util.Objects;
 
@@ -8,9 +8,10 @@ public class Potion {
     private Status increasingStatus;
     public Potion(String name,int price, Status
             increasingStatus){
-
+        setName(name);
+        setPrice(price);
+        setIncreasingStatus(increasingStatus);
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,6 +39,9 @@ public class Potion {
 
     public void setPrice(int price) {
         this.price = price;
+        if(price<1){
+            price=1;
+        }
     }
 
     public Status getIncreasingStatus() {

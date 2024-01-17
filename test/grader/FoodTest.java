@@ -1,7 +1,7 @@
 package grader;
 
 import static org.junit.jupiter.api.Assertions.*;
-import logic.exclude.Food;
+import logic.components.Food;
 import org.junit.jupiter.api.Test;
 public class FoodTest{
     @Test
