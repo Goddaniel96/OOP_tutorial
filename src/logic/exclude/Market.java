@@ -1,11 +1,14 @@
-package logic.component;
+package logic.components;
+
+import logic.exclude.Potion;
+import logic.game.Food;
 
 import java.util.ArrayList;
 
 public class Market {
     private String name ;
-    private ArrayList<Food> foods;
-    private ArrayList<Potion>  potions;
+    private ArrayList<Food>foods;
+    private ArrayList<Potion>potions;
     public Market(String name) {
         this.name = name;
     }

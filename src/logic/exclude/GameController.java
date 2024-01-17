@@ -1,10 +1,7 @@
 package logic.game;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import exception.BadStatusException;
-import logic.components.*;
 public class GameController {
     public ArrayList<Market> markets;
     public ArrayList<Player> players;

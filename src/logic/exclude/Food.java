@@ -3,6 +3,8 @@ package logic.components;
 import java.util.Objects;
 
 public class Food {
+
+
     private String name;
     private int price ; //price must be positice
     private int energy; // energy must be positive
